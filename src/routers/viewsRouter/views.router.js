@@ -13,18 +13,24 @@ router.get("/", (req, res) => {
   res.render("login");
 });
 
+router.get("/loginError", (req, res) => {
+  res.render("loginError");
+});
+
+//register
 router.get("/register", (req, res) => {
   res.render("register");
+});
+
+router.get("/registerOk", (req, res) => {
+  res.render("registerOk");
 });
 
 router.get("/registerError", (req, res) => {
   res.render("registerError");
 });
 
-router.get("/loginError", (req, res) => {
-  res.render("loginError");
-});
-
+//logout
 router.get("/logout", (req, res) => {
   res.render("logout");
 });

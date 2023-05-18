@@ -3,7 +3,7 @@ import express from "express";
 import session from "express-session";
 import handlebars from "express-handlebars";
 import { Server } from "socket.io";
-import mongoStore from "connect-mongo";
+
 import cookieParser from "cookie-parser";
 //locals
 import routers from "./src/routers/index.routers.js";
@@ -11,8 +11,13 @@ import { __dirname } from "./src/utils.js";
 import ProductManager from "./src/db/dao/mongo/productManagerMongo.js";
 import ChatManager from "./src/db/dao/mongo/chatManagerMongo.js";
 import CartManager from "./src/db/dao/mongo/cartManagerMongo.js";
+//db
 import "./src/db/dbConfig.js";
+import mongoStore from "connect-mongo";
 import { URI } from "./src/utils.js";
+//passport
+import passport from "passport";
+import "./src/passport/strategies.js";
 
 const app = express();
 const PORT = 8080;
@@ -42,6 +47,10 @@ app.use(
     }),
   })
 );
+
+//passport config
+app.use(passport.initialize());
+app.use(passport.session());
 
 /* handlebars */
 app.engine(

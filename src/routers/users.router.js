@@ -1,11 +1,9 @@
 import { Router } from "express";
-import UsersManager from "../db/dao/mongo/usersManagerMongo.js";
-import { hasData, compareData } from "../utils.js";
+import passport from "passport";
 
 const router = Router();
-const usersManager = new UsersManager();
 
-router.post("/login", async (req, res) => {
+/* router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const userOk = await usersManager.loginUser(email, password);
   console.log(userOk);
@@ -23,11 +21,19 @@ router.post("/login", async (req, res) => {
   } else {
     res.redirect("/loginError");
   }
-});
+}); */
 
-router.post("/register", async (req, res) => {
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/loginError",
+    successRedirect: "/products",
+  })
+);
+
+/* router.post("/register", async (req, res) => {
   const user = req.body;
-  const hashPassword = await hasData(user.password);
+  const hashPassword = await hashData(user.password);
   const newUser = { ...user, password: hashPassword };
   const userValidator = await usersManager.createUser(newUser);
   if (userValidator) {
@@ -35,12 +41,15 @@ router.post("/register", async (req, res) => {
   } else {
     res.redirect("/registerError");
   }
-});
+}); */
 
-router.get("/test", (req, res) => {
-  console.log("session", req.session);
-  res.send("Probando");
-});
+router.post(
+  "/register",
+  passport.authenticate("register", {
+    failureRedirect: "/registerError",
+    successRedirect: "/registerOk",
+  })
+);
 
 router.get("/logout", (req, res) => {
   req.session.destroy(error => {
@@ -51,6 +60,15 @@ router.get("/logout", (req, res) => {
       res.redirect("/");
     }
   });
+});
+
+router.get(
+  "/registerGitHub",
+  passport.authenticate("github", { scope: ["user:email"] })
+);
+
+router.get("/github", passport.authenticate("github"), (req, res) => {
+  res.send("User by gihub");
 });
 
 export default router;

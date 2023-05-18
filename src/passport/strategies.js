@@ -1,4 +1,4 @@
-import passport, { use } from "passport";
+import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as GitHubStrategy } from "passport-github2";
 import { usersModel } from "../db/models/users.model.js";

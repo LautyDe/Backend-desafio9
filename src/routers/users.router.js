@@ -68,7 +68,7 @@ router.get(
 );
 
 router.get("/github", passport.authenticate("github"), (req, res) => {
-  res.send("User by gihub");
+  res.redirect("/products");
 });
 
 export default router;

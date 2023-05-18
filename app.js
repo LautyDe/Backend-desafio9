@@ -3,7 +3,6 @@ import express from "express";
 import session from "express-session";
 import handlebars from "express-handlebars";
 import { Server } from "socket.io";
-
 import cookieParser from "cookie-parser";
 //locals
 import routers from "./src/routers/index.routers.js";

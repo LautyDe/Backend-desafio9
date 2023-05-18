@@ -1,0 +1,62 @@
+<header style="position: sticky; top: 0; z-index: 1">
+  <navbar>
+    <div style="background-color: black; padding: 10px 0px">
+      <ul
+        style="list-style: none; display: flex; justify-content: space-between"
+      >
+        <li style="padding: 0 5%;">
+          <a
+            style="color: white; text-decoration: none; font-weight: bold"
+            href="/products"
+          >Products</a>
+        </li>
+        <li style="padding: 0 5%;">
+          <a
+            style="color: white; text-decoration: none; font-weight: bold"
+            href="/realTimeProducts"
+          >RealTime</a>
+        </li>
+        <li style="padding: 0 5%;">
+          <a
+            style="color: white; text-decoration: none; font-weight: bold"
+            href="/chat"
+          >Chat</a>
+        </li>
+        <li style="padding: 0 5%;">
+          <a
+            style="color: white; text-decoration: none; font-weight: bold"
+            href="/carts"
+          >Carts</a>
+        </li>
+        <li style="padding: 0 5%;">
+          <a
+            style="color: white; text-decoration: none; font-weight: bold"
+            href="/logout"
+          >Log out</a>
+        </li>
+      </ul>
+    </div>
+  </navbar>
+</header>
+
+<h1>Su carrito (`${cart.id}`) 🛒</h1>
+
+{{#if cartsProducts}}
+  <section class="cartContainer">
+    {{#each cartsProducts}}
+      <div class="cartProduct">
+        <h3>Nombre: {{product.title}}</h3>
+        <h4>Precio:{{product.price}}</h4>
+        <img class="img" src="{{product.thumbnail}}" />
+        <h4>Cantidad: {{quantity}}</h4>
+        <div>
+          <button class="plusButton" id="plusOne">+</button>
+          <button class="minusButton" id="minusOne">-</button>
+        </div>
+      </div>
+    {{/each}}
+    <h2><a class="finish" href="">Terminar compra 💲</a></h2>
+  </section>
+{{else}}
+  <h3>No hay productos agregados!</h3>
+{{/if}}

@@ -1,0 +1,56 @@
+<header style="position: sticky; top: 0; z-index: 1">
+      <navbar>
+        <div style="background-color: black; padding: 10px 0px">
+          <ul
+            style="list-style: none; display: flex; justify-content: space-between"
+          >
+            <li style="padding: 0 5%;">
+              <a
+                style="color: white; text-decoration: none; font-weight: bold"
+                href="/products"
+              >Products</a>
+            </li>
+            <li style="padding: 0 5%;">
+              <a
+                style="color: white; text-decoration: none; font-weight: bold"
+                href="/realTimeProducts"
+              >RealTime</a>
+            </li>
+            <li style="padding: 0 5%;">
+              <a
+                style="color: white; text-decoration: none; font-weight: bold"
+                href="/chat"
+              >Chat</a>
+            </li>
+            <li style="padding: 0 5%;">
+              <a
+                style="color: white; text-decoration: none; font-weight: bold"
+                href="/carts"
+              >Carts</a>
+            </li>
+            <li style="padding: 0 5%;">
+              <a
+                style="color: white; text-decoration: none; font-weight: bold"
+                href="/logout"
+              >Log out</a>
+            </li>
+          </ul>
+        </div>
+      </navbar>
+    </header>
+
+<h1>Por favor, ingrese el Id de su carrito</h1>
+
+<section class="cartContainer">
+  <div>
+    <form id="searchCart">
+      <input type="text" id="cartsId" placeholder="Id del carrito" />
+      <input class="button" type="button" value="Buscar" onclick="searchCart()"></input>
+    </form>
+  </div>
+  
+  <div id="cart" class="productsContainer"></div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/carts.js"></script>

@@ -1,0 +1,46 @@
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+img {
+  margin-bottom: 10px;
+  height: 250px;
+  width: 250px;
+}
+
+.productsContainer {
+  display: grid;
+  grid-template-columns: 33vw 33vw 33vw;
+  justify-items: center;
+}
+
+.productsCard {
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: auto;
+  width: 300px;
+  margin: 20px 0;
+}
+
+.buttons {
+  margin: 0 0 10px 0;
+}
+
+.minusButton {
+  border: none;
+  background-color: red;
+  border-radius: 6.5px;
+  color: white;
+  width: 50px;
+}
+
+.plusButton {
+  border: none;
+  background-color: green;
+  border-radius: 6.5px;
+  color: white;
+  width: 50px;
+}

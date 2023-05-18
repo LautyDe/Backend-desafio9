@@ -1,0 +1,25 @@
+* {
+  text-align: center;
+}
+
+img {
+  margin-bottom: 10px;
+  height: 180px;
+  width: 150px;
+}
+
+.productsContainer {
+  justify-items: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.productsCard {
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: auto;
+  width: 300px;
+  margin: 20px 0;
+  align-self: center;
+}

@@ -68,7 +68,7 @@ passport.use(
       const email = profile._json.email;
       const userDB = await usersModel.findOne({ email });
       if (userDB) {
-        done(null, false);
+        return done(null, userDB);
       }
       const newUser = {
         first_name: profile._json.name.split(" ")[0],
@@ -77,6 +77,7 @@ passport.use(
         password: "",
       };
       const newUserDB = await usersModel.create(newUser);
+      console.log(newUser);
       done(null, newUserDB);
     }
   )
